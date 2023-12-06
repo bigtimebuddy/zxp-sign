@@ -12,7 +12,7 @@ jobs:
   release:
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
