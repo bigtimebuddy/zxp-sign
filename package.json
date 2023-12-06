@@ -1,0 +1,59 @@
+{
+  "name": "zxp-sign",
+  "version": "1.0.0",
+  "description": "Command-line utility to self-sign a ZXP",
+  "type": "module",
+  "bin": {
+    "zxp-sign": "./index.mjs"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "run-s lint format:check",
+    "lint": "eslint --ext .mjs .",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigtimebuddy/zxp-sign.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2022": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "sourceType": "module"
+    }
+  },
+  "keywords": [
+    "zxp",
+    "cep"
+  ],
+  "author": "Matt Karl <matt@mattkarl.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigtimebuddy/zxp-sign/issues"
+  },
+  "homepage": "https://github.com/bigtimebuddy/zxp-sign#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "minimist": "^1.2.8",
+    "zxp-sign-cmd": "^2.0.0"
+  },
+  "os": [
+    "darwin",
+    "win32"
+  ],
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.0"
+  }
+}
