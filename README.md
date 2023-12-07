@@ -23,9 +23,9 @@ These things can be set in CI as environment variables.
 - `ZXP_INPUT` - Same as `--input` argument
 - `ZXP_OUTPUT` - Same as `--output` argument
 - `ZXP_TIMESTAMP` - Same as `--timestamp` argument
-- `ZXP_CERT_COUNTRY` - Country for cert (e.g., "US")
-- `ZXP_CERT_PROVINCE` - Province or State for cert (e.g., "CA")
-- `ZXP_CERT_ORG` - Organization name
-- `ZXP_CERT_NAME` - Certificate name (e.g., the extension id)
-- `ZXP_CERT_PASSWORD` - Cert password
+- `ZXP_CERT_COUNTRY` - **(required)** Country for cert (e.g., "US")
+- `ZXP_CERT_PROVINCE` - **(required)** Province or State for cert (e.g., "CA")
+- `ZXP_CERT_ORG` - **(required)** Organization name
+- `ZXP_CERT_NAME` - **(required)** Certificate name (e.g., the extension id)
+- `ZXP_CERT_PASSWORD` - **(required)** Cert password
 - `ZXP_CERT_OUTPUT` - Optional cert output path (default: `${ZXP_CERT_NAME}-cert`)

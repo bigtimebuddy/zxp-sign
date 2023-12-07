@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Command-line utility to self-sign a ZXP",
   "type": "module",
-  "bin": {
-    "zxp-sign": "./index.mjs"
-  },
+  "bin": "./index.mjs",
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
