@@ -1,6 +1,6 @@
 {
   "name": "zxp-sign",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Command-line utility to self-sign a ZXP",
   "type": "module",
   "bin": "./index.mjs",
