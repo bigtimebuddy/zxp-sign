@@ -3,6 +3,7 @@
 import zxp from "zxp-sign-cmd";
 import minimist from "minimist";
 import chalk from "chalk";
+import fs from "node:fs";
 
 const { env, argv } = process;
 const { input, output, timestamp } = minimist(argv.slice(2), {
@@ -47,7 +48,7 @@ const certEnv = {
 };
 
 // Set defaults
-env.ZXP_CERT_OUTPUT = `${env.ZXP_CERT_NAME}-cert`;
+env.ZXP_CERT_OUTPUT = `${env.ZXP_CERT_NAME}-cert.p12`;
 
 const cert = {};
 
@@ -56,14 +57,18 @@ for (const [key, value] of Object.entries(certEnv)) {
     console.error(chalk.red(`ERROR: Missing ${value} environment variable`));
     process.exit(1);
   }
-  cert[key] = value;
+  cert[key] = env[value];
 }
 
-await zxp.selfSignedCert(cert);
-await zxp.sign({
-  input,
-  output,
-  timestamp,
-  cert: cert.output,
-  password: cert.password,
-});
+try {
+  await zxp.selfSignedCert(cert);
+  await zxp.sign({
+    input,
+    output,
+    timestamp,
+    cert: cert.output,
+    password: cert.password,
+  });
+} finally {
+  await fs.promises.unlink(cert.output);
+}
